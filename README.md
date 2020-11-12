@@ -4,10 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/House-Bezos/joe-service
+  - https://github.com/House-Bezos/deb-service
+  - https://github.com/House-Bezos/zains-service
 
 ## Table of Contents
 
