@@ -11,8 +11,18 @@ const db = require('../database/database.js');
 
 
 app.get('/relatedProducts/all', (req, res) => {
-  console.log('get All related Products');
-  res.status(200).send();
+  db.find({})
+  .then((data) => {
+    if(!data) {
+      throw data;
+    } else {
+      res.status(200).send(data);
+    }
+  })
+  .catch((data) => {
+    console.log('error in api call');
+    res.send('error getting data');
+  });
 });
 
 let port = 3003;

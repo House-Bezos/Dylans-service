@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 let faker = require('faker');
 const db = require('./database.js');
 
-
+console.log(db);
 
 let seedData = [];
-for (var i = 0; i <= 100; i++) {
+for (var i = 0; i <= 10; i++) {
   var document = {};
   document.name = faker.name.findName();
   document.rating = Math.floor(Math.random() * Math.floor(11));
@@ -15,11 +15,15 @@ for (var i = 0; i <= 100; i++) {
   document.images = [faker.image.food(), faker.image.food(), faker.image.food()];
   seedData.push(document);
 }
-db.insertMany(seedData)
-.then((err) => {
-  if(err) {
-    console.log('error seeking dumby data', err);
-  } else {
-    console.log('Seed Data Success!');
-  }
-});
+
+//mongoose.connect('mongodb://localhost/FEC');
+
+db.insertMany(seedData);
+// .then((err, res) => {
+//   if(err) {
+//     console.log('error seeding dummy data');
+//   } else {
+//     console.log('Seed Data Success!');
+//
+//   }
+mongoose.disconnect();
