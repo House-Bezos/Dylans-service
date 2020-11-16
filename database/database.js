@@ -1,6 +1,22 @@
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/products', {useNewUrlParser: true}, { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/products', {useNewUrlParser: true, useUnifiedTopology: true });
+
+//ask how to drop and create a db via js
+// (err, db) => {
+//   if(err) {
+//     throw err;
+//   } else {
+//     db.prototype.createCollection('products', (err, res) => {
+//       if (err) {
+//         throw err;
+//       } else {
+//         console.log('created mongo db collection');
+//         db.close();
+//       }
+//     });
+//   }
+// });
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
