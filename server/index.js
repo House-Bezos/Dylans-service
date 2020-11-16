@@ -9,13 +9,13 @@ app.use(bodyParser.json());
 
 const db = require('../database/database.js');
 
-
 app.get('/relatedProducts/all', (req, res) => {
   db.find({})
   .then((data) => {
     if(!data) {
       throw data;
     } else {
+      console.log('mongodb data accessed');
       res.status(200).send(data);
     }
   })

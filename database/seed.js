@@ -5,7 +5,7 @@ const db = require('./database.js');
 console.log(db);
 
 let seedData = [];
-for (var i = 0; i <= 10; i++) {
+for (var i = 0; i <= 17; i++) {
   var document = {};
   document.name = faker.name.findName();
   document.rating = Math.floor(Math.random() * Math.floor(11));
@@ -15,15 +15,9 @@ for (var i = 0; i <= 10; i++) {
   document.images = [faker.image.food(), faker.image.food(), faker.image.food()];
   seedData.push(document);
 }
+//db.dropDatabase();
+db.insertMany(seedData).then(() => {
+  mongoose.disconnect();
+});
 
-//mongoose.connect('mongodb://localhost/FEC');
-
-db.insertMany(seedData);
-// .then((err, res) => {
-//   if(err) {
-//     console.log('error seeding dummy data');
-//   } else {
-//     console.log('Seed Data Success!');
 //
-//   }
-mongoose.disconnect();

@@ -9,12 +9,13 @@ class RelatedItems extends React.Component {
     this.state = {
       itemData: [],
       currentPage: 1,
-      numPages: 0 // 7 items per page
+      numPages: 0,
+      startOverHidden: true
     };
   }
 
-  ComponentDidMount() {
-    //this.getData();
+  componentDidMount() {
+    this.getData();
   }
 
   getData() {
@@ -31,31 +32,39 @@ class RelatedItems extends React.Component {
     })
     .then(() => {
       let numProds = this.state.itemData.length;
-      let numPages = Math.round(numProds / 7);
+      let numPages = Math.ceil(numProds / 7);
       this.setState({numPages: numPages});
     });
   }
 
   changePage(event) {
     event.preventDefault();
-    console.log(event.target.name, ' was clicked');
     if (event.target.name === 'left') {
       if (this.state.currentPage !== 1) {
-        //this.setState({currentPage -= 1});
+        let page = this.state.currentPage - 1;
+        this.setState({currentPage: page});
+        if(page === 1) {
+          this.setState({startOverHidden: true});
+        }
       }
     } else {
-      if (this.currentPage !== this.state.numPages) {
-        //this.setState({currentPage +=1});
+      if (this.state.currentPage < this.state.numPages) {
+        let page = this.state.currentPage + 1;
+        this.setState({currentPage: page, startOverHidden: false})
       }
     }
-    // update products page
+  }
+
+  startOver(event) {
+    this.setState({currentPage: 1, startOverHidden: true});
   }
 
   render() {
     return (
       <div className='relatedItems'>
         <h5 className='title'>Products related to this item</h5>
-        <h5>Page {this.state.currentPage} of {this.state.numPages}</h5>
+        <h5>Page {this.state.currentPage} of {this.state.numPages} </h5>
+    <h5 hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}>| Start over</h5>
         <button className='leftRights' name='left' onClick={this.changePage.bind(this)}>left</button>
         <ProductList products={this.state.itemData} page={this.state.currentPage}/>
         <button className='leftRights' name='right' onClick={this.changePage.bind(this)}>right</button>
