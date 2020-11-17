@@ -1,20 +1,22 @@
 import React from 'react';
+import primeIcon from './images/primeLogo_621x260.png';
 
 const ProductEntry = ({props}) => {
+  // add prime image
+  // add highlight and underline of name on mouse over of image or name
+  // add image change every .5 seconds on mouse over
 
   return (
-    <div>
-      <img src={props.images[0]} width='100' height='100' alt='an Image should be here' />
-      <div >{props.name}</div>
-      <div>{props.rating}</div>
-      <div>{props.numRatings}</div>
-      <div>${props.price.toFixed(2)}</div>
-      <div hidden={props.prime}>prime</div>
+    <div className='aProduct' width='160'>
+      <img src={props.images[0]} width='160' height='160' alt='productImg' />
+      <div overflow-wrap='break-word' >{props.name}</div>
+      <div className='prodRating'>{props.rating}</div>
+      <div className='prodRating'> {props.numRatings}</div>
+      <div className='amount' >${props.price.toFixed(2)}</div>
+      <img hidden={props.prime} alt='primeIcon' src={primeIcon} width='36' height='12' />
     </div>
   );
 
 }
-//hidden={props.prime}<img src={require('./images/primeLogo_621x260.png')} />
-//https://medium.com/javascript-in-plain-english/how-to-display-images-from-local-assets-images-folder-when-working-with-react-feb6c5dba526
 
 export default ProductEntry;

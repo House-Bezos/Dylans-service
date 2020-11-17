@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 const axios = require('axios');
 import ProductList from './Products-list.jsx';
+import './styles/styles.css';
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -24,16 +25,13 @@ class RelatedItems extends React.Component {
       if (!res) {
         throw res;
       } else {
-        this.setState({itemData: res.data});
+        this.setState({
+          itemData: res.data,
+          numPages: Math.ceil(res.data.length / 7)});
       }
     })
     .catch((res) => {
       console.log('error in get request');
-    })
-    .then(() => {
-      let numProds = this.state.itemData.length;
-      let numPages = Math.ceil(numProds / 7);
-      this.setState({numPages: numPages});
     });
   }
 
@@ -62,12 +60,18 @@ class RelatedItems extends React.Component {
   render() {
     return (
       <div className='relatedItems'>
-        <h5 className='title'>Products related to this item</h5>
-        <h5>Page {this.state.currentPage} of {this.state.numPages} </h5>
-    <h5 hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}>| Start over</h5>
-        <button className='leftRights' name='left' onClick={this.changePage.bind(this)}>left</button>
-        <ProductList products={this.state.itemData} page={this.state.currentPage}/>
-        <button className='leftRights' name='right' onClick={this.changePage.bind(this)}>right</button>
+        <h5 className='title'>
+          Products related to this item
+          <span className='page'>
+            Page {this.state.currentPage} of {this.state.numPages}
+            <span hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</span>
+          </span>
+        </h5>
+        <div className='productList'>
+          <button className='leftRights' name='left' onClick={this.changePage.bind(this)}>left</button>
+          <ProductList products={this.state.itemData} page={this.state.currentPage}/>
+          <button className='leftRights' name='right' onClick={this.changePage.bind(this)}>right</button>
+        </div>
       </div>
     );
   }

@@ -8,7 +8,7 @@ const ProductList = ({products, page}) => { // display upto 7 products at a time
   let pageProducts = products.slice(startIndex, (startIndex + 7));
 
   return (
-    <div>
+    <div className='productList'>
       {pageProducts.map((aProduct) => {
         return <ProductEntry props={aProduct}/>
       }

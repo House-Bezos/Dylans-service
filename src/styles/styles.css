@@ -1,0 +1,45 @@
+.title {
+  color: #CC6600;
+}
+
+.page {
+  color: black;
+  position: fixed;
+  right: 3%;
+}
+
+.alignLeft {
+  float: left;
+}
+
+.alignRight {
+  float: right;
+}
+
+.leftRights {
+  height: 50px;
+  width: 50px;
+}
+
+.productList {
+  display: flex;
+  flex: row;
+  justify-content: space-around;
+}
+
+.aProduct {
+  color:#007185;
+}
+
+.amount {
+  color: #B12704;
+}
+
+.productHover {
+  color: #CC6600;
+  text-decoration: underline;
+}
+
+.prodRating {
+  display: inline;
+}
