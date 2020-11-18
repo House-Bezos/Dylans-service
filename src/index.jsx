@@ -64,7 +64,7 @@ class RelatedItems extends React.Component {
           Products related to this item
           <span className='page'>
             Page {this.state.currentPage} of {this.state.numPages}
-            <span hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</span>
+            <span className='startOver' hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</span>
           </span>
         </h5>
         <div className='productList'>
