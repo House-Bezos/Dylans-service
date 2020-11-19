@@ -1,9 +1,9 @@
 import React from 'react';
 import ProductEntry from './ProductEntry.jsx';
 
-const ProductList = ({products, page}) => { // display upto 7 products at a time
+const ProductList = ({products, page}) => { // display 5-7 products at a time depending on window size
   //console.log('products list', products);
-  // page 1 products 0-6, page 2 products 7-13, allow partial page population, i.e. < 7 products on a page
+
   let startIndex = (page - 1) * 7;
   let pageProducts = products.slice(startIndex, (startIndex + 7));
 
