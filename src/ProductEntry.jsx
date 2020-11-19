@@ -7,13 +7,15 @@ import fullStar from './images/full-star.png';
 const ProductEntry = ({props}) => {
 
   // React hook to cycle through images on image hover
-  const [currentImg, setImage] = useState(0); // need s3 Images to test?
-  const setImgHelper = (next) => {
-    if(next === props.setImage.length) {
-      next = 0;
+  const [currentImg, setImage] = useState(0);
+  const setImgHelper = (run) => { // figure out how to use setInterval to cycle through images
+    if(run) {
+      setImage(1);
+    } else {
+      setImage(0);
     }
-    setImage(next);
   }
+
 
   // react hook for changing product name style
   const [nameStyle, setStyle] = useState('prodName');
@@ -56,8 +58,8 @@ const ProductEntry = ({props}) => {
           className='prodImg'
           src={props.images[currentImg]}
           alt='productImg'
-          onMouseEnter={() => setInterval(setImage(currentImg + 1), 500)}
-          onMouseLeave={() => setImage(0)}
+          onMouseEnter={() => setImgHelper(true)}
+          onMouseLeave={() => setImgHelper(false)}
         />
         <div className={nameStyle}>{props.name}</div>
       </div>

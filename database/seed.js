@@ -23,7 +23,7 @@ for (var i = 0; i <= 17; i++) {
   document.price = faker.commerce.price();
   document.images = [];
   for (var j = 0; j < 3; j++){
-    document.images.push(s3Images[Math.floor(Math.random() * 21)]);
+    document.images.push(s3Images[Math.floor(Math.random() * numImgs)]);
   }
   seedData.push(document);
   console.log('document ', i, ' created');
