@@ -12,6 +12,10 @@ class RelatedItems extends React.Component {
       currentPage: 1,
       numPages: 0,
       startOverHidden: true
+      // windowWidth: window.innerWidth
+      // come back to if > 1100px display 5 items,
+      // > 1200 px => 6 items, >1300px => 7
+      // update numPages to match the change
     };
   }
 
@@ -67,10 +71,10 @@ class RelatedItems extends React.Component {
             <span className='startOver' hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</span>
           </span>
         </h5>
-        <div className='productList'>
-          <button className='leftRights' name='left' onClick={this.changePage.bind(this)}>left</button>
+        <div className='productCarousel'>
+          <button className='leftRights' id='left' name='left' onClick={this.changePage.bind(this)}> {'<'} </button>
           <ProductList products={this.state.itemData} page={this.state.currentPage}/>
-          <button className='leftRights' name='right' onClick={this.changePage.bind(this)}>right</button>
+          <button className='leftRights' id='right' name='right' onClick={this.changePage.bind(this)}> {'>'} </button>
         </div>
       </div>
     );

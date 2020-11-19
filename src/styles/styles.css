@@ -1,3 +1,9 @@
+.relatedItems {
+  font-family: 'Arial, sans-serif, Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
 .title {
   color: #CC6600;
 }
@@ -5,29 +11,34 @@
 .page {
   color: black ;
   position: fixed;
-  right: 1%;
+  right: 12%;
 }
 .startOver {
  color: #007185
 }
 
-.alignLeft {
+#left {
   float: left;
 }
 
-.alignRight {
+#right {
   float: right;
 }
 
 .leftRights {
-  width: 50px;
-  height: 50px;
+  width: 34px;
+  height: 37px;
+}
+.productCarousel {
+  display: flex;
+  align-items: center;
 }
 
 .productList {
   display: flex;
-  flex: row;
-  justify-content: space-around;
+  flex-direction: row;
+  justify-content: flex-start;
+  width:93%;
 }
 
 .aProduct {
@@ -37,14 +48,24 @@
 }
 
 .prodImg {
-  width: 160px;
-  height: 160px;
+  max-width: 160px;
+  max-height: 160px;
 }
 
 .prodName {
   max-width: 160px;
   max-height: 80px;
-  overflow-wrap: 'break-word';
+  overflow-wrap: 'anywhere';
+  font-size: 14px;
+}
+
+.productHover {
+  color: #CC6600;
+  text-decoration: underline;
+  max-width: 160px;
+  max-height: 80px;
+  overflow-wrap: 'anywhere';
+  font-size: 14px;
 }
 
 .prodReview {
@@ -59,14 +80,11 @@
 
 .prodPrice {
   color: #B12704;
+  align-content: center
 }
 
 .primeIcon {
   width: 40px;
   height: 20px;
-}
 
-.productHover {
-  color: #CC6600;
-  text-decoration: underline;
 }
