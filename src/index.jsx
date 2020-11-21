@@ -80,4 +80,4 @@ class RelatedItems extends React.Component {
     );
   }
 }
-ReactDOM.render(<RelatedItems/>, document.getElementById('app'));
+ReactDOM.render(<RelatedItems/>, document.getElementById('RelatedProductsService'));
