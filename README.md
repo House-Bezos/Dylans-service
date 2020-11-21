@@ -35,4 +35,7 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+## Start mongodb locally
+ sudo service mongod start
+
 

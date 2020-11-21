@@ -65,20 +65,20 @@ describe('Unit Tests', () => {
 
 describe('Integration Tests for API and db', () => {
 
-  beforeEach( async () => {
-    await page.goto(compURL, {waitUntil: 'networkidle2'});
-  });
+//   beforeEach( async () => {
+//     await page.goto(compURL, {waitUntil: 'networkidle2'});
+//   });
 
-  const superRequest = require('supertest');
-  let request = superRequest(compURL);
+//   const superRequest = require('supertest');
+//   let request = superRequest(compURL);
 
-// null means a good request, 404 will still pass but will console an err
-  test('Get to /relatedProducts/all returns data', async () => {
-    request.get('relatedProducts/all').expect(200, (err) => {
-      console.log(err);
-    });
-  });
-});
+// // null means a good request, 404 will still pass but will console an err
+//   test('Get to /relatedProducts/all returns data', async () => {
+//     request.get('relatedProducts/all').expect(200, (err) => {
+//       console.log(err);
+//     });
+//   });
+ });
 
 describe('End-to-end Tests for UI', () => {
 

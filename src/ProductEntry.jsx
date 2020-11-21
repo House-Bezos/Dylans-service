@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import primeIcon from './images/primeLogo_621x260.png';
-import emptyStar from './images/empty-star.png';
-import halfStar from './images/half-star.png';
-import fullStar from './images/full-star.png';
+const primeIcon = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/primeCheck.png';
+const emptyStar = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/empty-star.png';
+const halfStar = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/half-star.png';
+const fullStar = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/full-star.png';
 
 const ProductEntry = ({props}) => {
 
