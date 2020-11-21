@@ -14,7 +14,7 @@ for (var i = 0; i < numImgs; i++) {
 
 
 let seedData = [];
-for (var i = 0; i <= 17; i++) {
+for (var i = 0; i <= 100; i++) {
   var document = {};
   document.name = faker.name.findName();
   document.rating = Math.floor(Math.random() * Math.floor(11));

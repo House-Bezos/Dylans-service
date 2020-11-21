@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 const db = require('../database/database.js');
 
-app.get('/relatedProducts/all', (req, res) => {
+app.get('/api/relatedProducts/all', (req, res) => {
   db.find({})
   .then((data) => {
     if(!data) {

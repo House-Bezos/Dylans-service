@@ -1,6 +1,6 @@
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/products', {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/RelatedProducts', {useNewUrlParser: true, useUnifiedTopology: true });
 
 //ask how to drop and create a db via js
 // (err, db) => {
