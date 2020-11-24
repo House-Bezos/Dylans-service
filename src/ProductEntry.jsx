@@ -1,8 +1,43 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 const primeIcon = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/primeCheck.png';
 const emptyStar = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/empty-star.png';
 const halfStar = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/half-star.png';
 const fullStar = 'https://fec-related-items.s3-us-west-2.amazonaws.com/bars/full-star.png';
+
+const Entry = styled.div `
+  color:#007185;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 15%;
+`;
+
+const ProdImg = styled.img `
+  width: 99%;
+  height: 160px;
+`;
+
+const HoverBox = styled.div `
+  &:hover {
+    color: #CC6600;
+    text-decoration: underline;
+  };
+`;
+
+const Stars = styled.img `
+  width: 16px;
+  height: 18px;
+`;
+
+const Price = styled.div `
+  color: #B12704;
+  align-content: baseline;
+`;
+
+const Prime = styled.img `
+  width: 35px;
+  padding-left: 2px;
+`;
 
 const ProductEntry = ({props}) => {
 
@@ -14,13 +49,6 @@ const ProductEntry = ({props}) => {
     } else {
       setImage(0);
     }
-  }
-
-
-  // react hook for changing product name style
-  const [nameStyle, setStyle] = useState('prodName');
-  const setStyleHelper = (style) => {
-    setStyle(style);
   }
 
   // adds stars
@@ -40,7 +68,7 @@ const ProductEntry = ({props}) => {
     return (
       <div>
         {fills.map((star) => {
-          return <img className='stars' src={star}/>
+          return <Stars src={star}/>
         }
       )}
       <span> {props.numRatings}</span>
@@ -49,27 +77,23 @@ const ProductEntry = ({props}) => {
   }
 
   return (
-    <div className='aProduct' onClick={() => console.log('This is where you would be redirected to', props.name)}>
-      <div
-        onMouseEnter={()=> setStyle('productHover')}
-        onMouseLeave={()=> setStyle('productName')}
-      >
-        <img
-          className='prodImg'
+    <Entry onClick={() => console.log('This is where you would be redirected to', props.name)}>
+      <HoverBox>
+        <ProdImg
           src={props.images[currentImg]}
           alt='productImg'
           onMouseEnter={() => setImgHelper(true)}
           onMouseLeave={() => setImgHelper(false)}
         />
-        <div className={nameStyle}>{props.name}</div>
-      </div>
-      <div className='prodRating'>{starRating(props.rating)}</div>
-      <div className='prodPrice'>${props.price.toFixed(2)}<span>
-        <img className='primeIcon' hidden={props.prime} alt='primeIcon' src={primeIcon}/>
+        <div>{props.name}</div>
+      </HoverBox>
+      <div>{starRating(props.rating)}</div>
+      <Price>${props.price.toFixed(2)}<span>
+        <Prime hidden={props.prime} alt='primeIcon' src={primeIcon}/>
         </span>
-      </div>
+      </Price>
 
-    </div>
+    </Entry>
   );
 }
 
