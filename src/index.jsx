@@ -2,7 +2,41 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 const axios = require('axios');
 import ProductList from './Products-list.jsx';
-import './styles/styles.css';
+// import './styles/styles.css';
+import styled from 'styled-components';
+
+// component styles
+
+const RelatedComp = styled.div `
+  font-family: 'Arial, sans-serif, Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  color: black;
+`;
+
+const Title = styled.h4 `
+  color: #CC6600;
+`;
+
+const PageInfo = styled.span `
+  color: black ;
+  position: fixed;
+  right: 2%
+`;
+
+const StartOver = styled.span `
+  color: #007185;
+`;
+
+const Carousel = styled.div `
+  display: grid;
+  grid-template-columns: 4% 92% 4%;
+  justify-items: center;
+  align-items: center;
+`;
+
+const Button = styled.button `
+  width: 34px;
+  height: 37px;
+`;
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -63,20 +97,20 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <div className='relatedItems'>
-        <h5 className='title'>
+      <RelatedComp>
+        <Title>
           Products related to this item
-          <span className='page'>
+          <PageInfo>
             Page {this.state.currentPage} of {this.state.numPages}
-            <span className='startOver' hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</span>
-          </span>
-        </h5>
-        <div className='productCarousel'>
-          <button className='leftRights' id='left' name='left' onClick={this.changePage.bind(this)}> {'<'} </button>
+            <StartOver hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</StartOver>
+          </PageInfo>
+        </Title>
+        <Carousel>
+          <Button id='left' name='left' onClick={this.changePage.bind(this)}> {'<'} </Button>
           <ProductList products={this.state.itemData} page={this.state.currentPage}/>
-          <button className='leftRights' id='right' name='right' onClick={this.changePage.bind(this)}> {'>'} </button>
-        </div>
-      </div>
+          <Button id='right' name='right' onClick={this.changePage.bind(this)}> {'>'} </Button>
+        </Carousel>
+      </RelatedComp>
     );
   }
 }
