@@ -3,40 +3,8 @@ import ReactDOM from 'react-dom';
 const axios = require('axios');
 import ProductList from './Products-list.jsx';
 // import './styles/styles.css';
-import styled from 'styled-components';
-
-// component styles
-
-const RelatedComp = styled.div `
-  font-family: 'Arial, sans-serif, Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
-  color: black;
-`;
-
-const Title = styled.h4 `
-  color: #CC6600;
-`;
-
-const PageInfo = styled.span `
-  color: black ;
-  position: fixed;
-  right: 2%
-`;
-
-const StartOver = styled.span `
-  color: #007185;
-`;
-
-const Carousel = styled.div `
-  display: grid;
-  grid-template-columns: 4% 92% 4%;
-  justify-items: center;
-  align-items: center;
-`;
-
-const Button = styled.button `
-  width: 34px;
-  height: 37px;
-`;
+// import styled from 'styled-components';
+import styles from './styles.module.css';
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -97,20 +65,20 @@ class RelatedItems extends React.Component {
 
   render() {
     return (
-      <RelatedComp>
-        <Title>
+      <div className={styles.RelatedComp}>
+        <h4 className={styles.Title}>
           Products related to this item
-          <PageInfo>
+          <span className={styles.PageInfo}>
             Page {this.state.currentPage} of {this.state.numPages}
-            <StartOver hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</StartOver>
-          </PageInfo>
-        </Title>
-        <Carousel>
-          <Button id='left' name='left' onClick={this.changePage.bind(this)}> {'<'} </Button>
+            <span className={styles.StartOver} hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</span>
+          </span>
+        </h4>
+        <div className={styles.Carousel}>
+          <button className={styles.Button} id='left' name='left' onClick={this.changePage.bind(this)}> {'<'} </button>
           <ProductList products={this.state.itemData} page={this.state.currentPage}/>
-          <Button id='right' name='right' onClick={this.changePage.bind(this)}> {'>'} </Button>
-        </Carousel>
-      </RelatedComp>
+          <button className={styles.Button} id='right' name='right' onClick={this.changePage.bind(this)}> {'>'} </button>
+        </div>
+      </div>
     );
   }
 }

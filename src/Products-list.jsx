@@ -1,13 +1,8 @@
 import React from 'react';
 import ProductEntry from './ProductEntry.jsx';
-import styled from 'styled-components';
-// react styles
-const ProductCarousel = styled.div `
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  width: 100%;
-`;
+//import styled from 'styled-components';
+import styles from './styles.module.css';
+
 
 
 const ProductList = ({products, page}) => { // display 5-7 products at a time depending on window size
@@ -17,12 +12,12 @@ const ProductList = ({products, page}) => { // display 5-7 products at a time de
   let pageProducts = products.slice(startIndex, (startIndex + 7));
 
   return (
-    <ProductCarousel>
+    <div className={styles.ProductCarousel}>
       {pageProducts.map((aProduct) => {
         return <ProductEntry props={aProduct}/>
       }
     )}
-    </ProductCarousel>
+    </div>
   );
 }
 

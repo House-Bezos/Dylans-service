@@ -1,0 +1,79 @@
+ /* component module styles */
+
+ /* index.jsx */
+.RelatedComp {
+  font-family: 'Arial, sans-serif, Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode';
+  color: black; 
+}
+
+.Title {
+  color: #CC6600;  
+}
+
+.PageInfo {
+  color: black ;
+  position: fixed;
+  right: 2%;
+} 
+
+.StartOver {
+  color: #007185;
+  cursor: pointer;
+} 
+
+.Carousel {
+  display: grid;
+  grid-template-columns: 4% 92% 4%;
+  justify-items: center;
+  align-items: center;   
+}
+
+.Button {
+  width: 34px;
+  height: 37px;
+  cursor: pointer;
+} 
+ 
+/* Products-list.jsx */
+
+.ProductCarousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%; 
+}
+
+/* ProductEntry.jsx */
+
+.Entry {
+  color:#007185;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 15%;
+  cursor: pointer;    
+}
+
+.ProdImg {
+  width: 99%;
+  height: 160px; 
+}
+
+.HoverBox:hover {
+  color: #CC6600;
+  text-decoration: underline;
+}
+
+.Stars {
+  width: 16px;
+  height: 18px;    
+}
+
+.Price {
+  color: #B12704;
+  align-content: baseline;    
+}
+
+.Prime {
+  width: 35px;
+  padding-left: 2px;    
+}
