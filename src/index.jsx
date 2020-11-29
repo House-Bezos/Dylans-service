@@ -68,10 +68,10 @@ class RelatedItems extends React.Component {
       <div className={styles.RelatedComp}>
         <h4 className={styles.Title}>
           Products related to this item
-          <span className={styles.PageInfo}>
+          <div className={styles.PageInfo}>
             Page {this.state.currentPage} of {this.state.numPages}
             <span className={styles.StartOver} hidden={this.state.startOverHidden} onClick={this.startOver.bind(this)}> | Start over</span>
-          </span>
+          </div>
         </h4>
         <div className={styles.Carousel}>
           <button className={styles.Button} id='left' name='left' onClick={this.changePage.bind(this)}> {'<'} </button>

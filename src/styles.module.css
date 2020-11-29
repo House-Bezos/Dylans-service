@@ -7,13 +7,17 @@
 }
 
 .Title {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-content: left;
   color: #CC6600;  
 }
 
 .PageInfo {
+  grid-column: 2/3;
+  justify-self: end;
   color: black ;
-  position: fixed;
-  right: 2%;
+
 } 
 
 .StartOver {
